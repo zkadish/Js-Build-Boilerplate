@@ -1,8 +1,8 @@
-## JS Build Boilerplate
+# JS Build Boilerplate
 
-# A starting point for creating a stand alone vinilla js module with no framework
+A starting point for creating a stand alone vanilla js module with no framework
 
-# Dependencies:
-- node 7 npm
+Build Tools:
 - webpack
 - babel
+- sass

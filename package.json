@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf dist",
-    "build": "webpack",
-    "start": "export NODE_ENV=dev; webpack-dev-server"
+    "build": "webpack -p",
+    "start": "export NODE_ENV=development; webpack-dev-server -d"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,8 @@
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "css-loader": "^0.28.4",
-    "eslint": "^4.2.0",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.0",
