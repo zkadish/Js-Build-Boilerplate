@@ -58,6 +58,6 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true, // gzip
     port: 7000,
-    hot: true,
+    // hot: true,
   }
 }

@@ -1,4 +1,2 @@
-import 'src/sass/styles.scss'
-import 'src/js/dist'
-
-// console.log('bundle loaded')
+import 'src/sass/index.scss'
+import 'src/js/app'
