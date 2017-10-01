@@ -1,13 +1,22 @@
+console.log('app loaded!')
 const button = document.querySelectorAll('button');
 const value = document.querySelector('.value');
+var num = Number(value.innerHTML);
 
-console.log(button);
-button[0].onclick = function () {
-  let num = Number(value.innerText);
-  value.innerText = ++num;
+function increment () {
+  value.innerHTML = ++num;
 }
 
-button[1].onclick = function () {
-  let num = Number(value.innerText);
-  value.innerText = --num;
+function decrement () {
+  value.innerHTML = --num;
+}
+
+button[0].onclick = increment;
+
+button[1].onclick = decrement;
+
+// for testing only
+module.exports = {
+  increment,
+  decrement
 }
