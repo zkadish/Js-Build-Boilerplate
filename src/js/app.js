@@ -1,4 +1,3 @@
-console.log('app loaded!')
 const button = document.querySelectorAll('button');
 const value = document.querySelector('.value');
 var num = Number(value.innerHTML);
