@@ -1,14 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-console.log('NODE_ENV', process.env.NODE_ENV + '\n');
+console.log('NODE_ENV', `${process.env.NODE_ENV} \n`);
 
 const extractSass = new ExtractTextWebpackPlugin({
   filename: '[name].css',
   disable: process.env.NODE_ENV === 'development',
-})
+});
 
 module.exports = {
   entry: {
@@ -29,7 +29,8 @@ module.exports = {
         test: /\.scss$/,
         use: extractSass.extract({
           use: [
-            { loader: 'css-loader' },
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
             { loader: 'sass-loader' },
           ],
           fallback: 'style-loader',
@@ -44,9 +45,9 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       DEVELOPMENT: JSON.stringify(process.env.NODE_ENV === 'development'),
-      // PRODUCTION: JSON.stringify(process.env.NODE_ENV === 'production'),
+      PRODUCTION: JSON.stringify(process.env.NODE_ENV === 'production'),
     }),
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: 'JS build boilerplate',
       template: 'src/index.html',
       inject: true,
@@ -58,6 +59,5 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true, // gzip
     port: 7000,
-    // hot: true,
-  }
-}
+  },
+};
